@@ -59,7 +59,7 @@ var assert = {
   //   assert.toEqual(noteController.noteListView.list, '<ul><li><div>note: Hello</div></li></ul>')
   // };
 
-  testWriteHtml();
+  // testWriteHtml();
   testNewNoteController();
   testViewList();
   testShowText();
