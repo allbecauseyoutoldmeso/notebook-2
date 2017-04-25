@@ -42,10 +42,21 @@
     }
   };
 
+  function testViewList() {
+    var noteList = new NoteList();
+    noteList.addNote("Hello");
+    var viewList = new ListView(noteList);
+    if(viewList.list() === '<ul><li><div>note: Hello</div></li></ul>') {
+      console.log('testViewList passes!')
+    } else {
+      throw new Error("testViewList did not pass.")
+    }
+
+  };
+
+  testViewList();
   testShowText();
   testPrintNote();
   testNote();
   testAddNote();
 })(this);
-
-
