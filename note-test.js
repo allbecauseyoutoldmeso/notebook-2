@@ -39,6 +39,14 @@ var assert = {
     assert.toEqual(viewList.list(), '<ul><li><div>note: Hello</div></li></ul>')
   };
 
+  function testNewNoteController() {
+    function NoteListDouble() {};
+    var noteList = new NoteListDouble();
+    var noteController = new NoteController(noteList);
+    assert.toEqual(noteController.noteList, noteList);
+  };
+
+  testNewNoteController();
   testViewList();
   testShowText();
   testPrintNote();
