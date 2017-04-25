@@ -1,5 +1,5 @@
       var noteList = new NoteList();
       var noteController = new NoteController(noteList);
 
-      noteController.addNotes();
+      noteController.addNotes('this is a note');
       noteController.makeView();

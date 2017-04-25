@@ -46,6 +46,20 @@ var assert = {
     assert.toEqual(noteController.noteList, noteList);
   };
 
+  // function testWriteHtml() {
+  //   function NoteListDouble() {};
+  //   function ListViewDouble() {};
+  //   ListViewDouble.prototype = {
+  //     list: '<ul><li><div>note: Hello</div></li></ul>'
+  //
+  //   };
+  //   var noteList = new NoteListDouble();
+  //   var noteListView = new ListViewDouble();
+  //   var noteController = new NoteController(noteList)
+  //   assert.toEqual(noteController.noteListView.list, '<ul><li><div>note: Hello</div></li></ul>')
+  // };
+
+  testWriteHtml();
   testNewNoteController();
   testViewList();
   testShowText();
