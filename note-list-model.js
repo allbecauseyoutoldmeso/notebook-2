@@ -1,7 +1,7 @@
 (function(exports) {
 
   function NoteList() {
-
+    this._noteArray = []
   }
 
   NoteList.prototype.addNote = function(string) {

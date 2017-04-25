@@ -36,12 +36,7 @@ var assert = {
     var noteList = new NoteList();
     noteList.addNote("Hello");
     var viewList = new ListView(noteList);
-    if(viewList.list() === '<ul><li><div>note: Hello</div></li></ul>') {
-      console.log('testViewList passes!')
-    } else {
-      throw new Error("testViewList did not pass.")
-    }
-
+    assert.toEqual(viewList.list(), '<ul><li><div>note: Hello</div></li></ul>')
   };
 
   testViewList();
@@ -50,9 +45,3 @@ var assert = {
   testNote();
   testAddNote();
 })(this);
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 1312bff2a49a1c4baf6761969836ef2fa097ddea
