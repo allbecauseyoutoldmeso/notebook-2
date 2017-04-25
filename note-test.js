@@ -3,10 +3,10 @@
   function testNote() {
     var note = new Note();
 
-    if (note.noteArray.length !== 0) {
+    if (note._noteArray.length !== 0) {
       throw new Error("Notes array is not empty");
     } else {
-      console.log("This test passes!");
+      console.log("testNote passes!");
     }
   };
 
@@ -14,10 +14,10 @@
     var note = new Note();
     note.addNote("Hello");
 
-    if (note.noteArray[note.noteArray.length-1] !== "Hello") {
+    if (note._noteArray[note._noteArray.length-1] !== "Hello") {
       throw new Error("It does not add notes to the array");
     } else {
-      console.log("This test passes!");
+      console.log("testAddNote passes!");
     }
   };
 
@@ -25,10 +25,14 @@
     var note = new Note();
     note.addNote("Hello");
 
-
-    if (
+    if (note.printNote().includes("Hello")) {
+      console.log("testPrintNote passes!")
+    } else {
+      throw new Error("print note does not include the note")
+    }
   };
 
+  testPrintNote();
   testNote();
   testAddNote();
 })(this);
