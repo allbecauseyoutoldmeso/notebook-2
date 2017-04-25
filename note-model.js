@@ -1,15 +1,11 @@
 (function(exports) {
 
-  function Note() {
-    this._noteArray = [];
+  function Note(text) {
+    this._text = text;
   }
 
-  Note.prototype.addNote = function(string) {
-    this._noteArray.push(string);
-  }
-
-  Note.prototype.printNote = function() {
-    return this._noteArray;
+  Note.prototype.showText = function() {
+    return this._text;
   }
 
   exports.Note = Note;
