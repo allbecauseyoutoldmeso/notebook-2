@@ -7,20 +7,24 @@ function changeText() {
 (function(exports) {
 
   function NoteController(noteList) {
-    this.noteList = noteList;
+    this._noteList = noteList;
   }
 
   NoteController.prototype.addNotes = function(text) {
-    this.noteList.addNote(text);
+    this._noteList.addNote(text);
   };
 
-  NoteController.prototype.makeView = function() {
-    this.noteListView = new ListView(this.noteList);
+  NoteController.prototype._makeView = function() {
+    this._noteListView = new ListView(this._noteList);
   };
+
+  NoteController.prototype._getHtml = function() {
+    return document.getElementsByClassName('app')[0];
+  }
 
   NoteController.prototype.writeHtml = function() {
-    elem = document.getElementsByClassName('app')[0];
-    elem.innerHTML = this.noteListView.list();
+    this._makeView()
+    this._getHtml().innerHTML = this._noteListView.list();
   };
 
   exports.NoteController = NoteController;

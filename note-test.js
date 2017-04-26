@@ -1,4 +1,3 @@
-// var note = require("./note-model").note;
 var assert = {
   toEqual: function(actual, expected) {
     if (actual !== expected) {
@@ -9,16 +8,27 @@ var assert = {
   }
 };
 
+var check = {
+  toInclude: function(container, contained) {
+    if(container.includes(contained)) {
+      console.log("It passed! You guys rock!");
+    } else {
+      throw new Error("Unlucky! " + container + " did not contain " + contained);
+    }
+  }
+};
+
 (function(exports) {
+
   function testNote() {
-    var note = new NoteList();
-    assert.toEqual(note._noteArray.length, 0)
+    var noteList = new NoteList();
+    assert.toEqual(noteList._noteArray.length, 0)
   };
 
   function testAddNote(){
     var noteList = new NoteList();
     noteList.addNote("Hello");
-    assert.toEqual(noteList._noteArray[0].showText(), "Hello")
+    assert.toEqual(noteList._noteArray.length, 1)
   };
 
   function testPrintNote() {
@@ -43,21 +53,15 @@ var assert = {
     function NoteListDouble() {};
     var noteList = new NoteListDouble();
     var noteController = new NoteController(noteList);
-    assert.toEqual(noteController.noteList, noteList);
+    assert.toEqual(noteController._noteList, noteList);
   };
 
-  // function testWriteHtml() {
-  //   function NoteListDouble() {};
-  //   function ListViewDouble() {};
-  //   ListViewDouble.prototype = {
-  //     list: '<ul><li><div>note: Hello</div></li></ul>'
-  //
-  //   };
-  //   var noteList = new NoteListDouble();
-  //   var noteListView = new ListViewDouble();
-  //   var noteController = new NoteController(noteList)
-  //   assert.toEqual(noteController.noteListView.list, '<ul><li><div>note: Hello</div></li></ul>')
-  // };
+  function testWriteHtml() {
+    var noteController = new NoteController(noteList)
+    noteController.addNotes('Bananas')
+    noteController.writeHtml()
+    assert.toEqual(document.getElementsByClassName('app')[0].innerHTML, '<ul><li><div>note: Bananas</div></li></ul>')
+  };
 
   // testWriteHtml();
   testNewNoteController();
